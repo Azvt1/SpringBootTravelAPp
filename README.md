@@ -14,7 +14,7 @@ This is a Spring Boot application for managing travel bookings, including flight
 
 ## Prerequisites
 Before you begin, ensure you have the following installed on your machine:
-- [Java JDK 17 or later](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
+- [Java JDK 21 or later](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
 - [Maven 3.6.3 or later](https://maven.apache.org/download.cgi)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
