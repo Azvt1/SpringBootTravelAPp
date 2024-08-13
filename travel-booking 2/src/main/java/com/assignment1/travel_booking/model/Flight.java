@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Flight {
     @Id
-    private String flightNumber;
+    private Long flightNumber;
 
 
     private LocalDateTime departureTime;
@@ -19,7 +19,7 @@ public class Flight {
 
     public Flight () {}
 
-    public Flight (String flightNumber, LocalDateTime departureTime, LocalDateTime arrivalTime, String originCity, String arrivalCity) {
+    public Flight (Long flightNumber, LocalDateTime departureTime, LocalDateTime arrivalTime, String originCity, String arrivalCity) {
         this.flightNumber = flightNumber;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
@@ -28,7 +28,7 @@ public class Flight {
     }
 
     // Setters
-    public void setFlightNumber(String flightNumber) {
+    public void setFlightNumber(Long flightNumber) {
         this.flightNumber = flightNumber;
     }
 
@@ -49,7 +49,7 @@ public class Flight {
     }
 
     // Getters
-    public String getFlightNumber() {
+    public Long getFlightNumber() {
         return flightNumber;
     }
 
