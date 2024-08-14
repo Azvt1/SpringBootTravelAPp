@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringBootTravelAPp.iml" filepath="$PROJECT_DIR$/.idea/SpringBootTravelAPp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/travel-booking 2/travel-booking.iml" filepath="$PROJECT_DIR$/travel-booking 2/travel-booking.iml" />
     </modules>
   </component>
 </project>
