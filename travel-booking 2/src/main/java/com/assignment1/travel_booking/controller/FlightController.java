@@ -15,8 +15,8 @@ import java.util.Optional;
 public class FlightController {
     private final FlightService flightService;
 
-    public FlightController(FlightService flighService) {
-        this.flightService = flighService;
+    public FlightController(FlightService flightService) {
+        this.flightService = flightService;
     }
 
     @PostMapping
