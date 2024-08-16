@@ -1,9 +1,7 @@
 package com.assignment1.travel_booking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Entity
@@ -18,6 +16,10 @@ public class CarRentals {
     private Date pickUpTime;
     private double totalDistanceTraveled;
     private double totalPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
 
     // Getters and Setters
     public Long getCarRentalId() {

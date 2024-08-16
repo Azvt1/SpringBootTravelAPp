@@ -25,11 +25,7 @@ public class Booking {
     @OneToMany(mappedBy = "Booking", cascade = CascadeType.ALL)
     private List<HotelBooking> hotelBookings;
 
-
-
-
     @OneToMany(mappedBy = "Booking", cascade = CascadeType.ALL)
-
     private List<CarRentals> carRentals;
 
 }
