@@ -22,6 +22,10 @@ public class FlightBooking {
     @JoinColumn(name = "flightNumber", nullable = false)
     private Flight flight;
 
+    @ManyToOne
+    @JoinColumn(name = "booking_id", nullable = false)
+    private Booking booking;
+
 
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
