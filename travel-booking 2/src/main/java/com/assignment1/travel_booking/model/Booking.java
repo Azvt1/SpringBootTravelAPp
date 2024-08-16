@@ -19,13 +19,17 @@ public class Booking {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Booking", cascade = CascadeType.ALL)
     private List<FlightBooking> flightBookings;
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Booking", cascade = CascadeType.ALL)
     private List<HotelBooking> hotelBookings;
 
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+
+
+
+    @OneToMany(mappedBy = "Booking", cascade = CascadeType.ALL)
+
     private List<CarRentals> carRentals;
 
 }

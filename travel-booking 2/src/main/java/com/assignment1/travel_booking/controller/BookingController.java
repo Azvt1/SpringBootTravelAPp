@@ -1,7 +1,7 @@
-package com.assignment1.travelbooking.controller;
+package com.assignment1.travel_booking.controller;
 
-import com.assignment1.travelbooking.model.Booking;
-import com.assignment1.travelbooking.service.BookingService;
+import com.assignment1.travel_booking.model.Booking;
+import com.assignment1.travel_booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
