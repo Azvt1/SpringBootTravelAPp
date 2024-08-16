@@ -1,7 +1,7 @@
-package com.assignment1.travelbooking.service;
+package com.assignment1.travel_booking.service;
 
-import com.assignment1.travelbooking.model.Booking;
-import com.assignment1.travelbooking.repository.BookingRepository;
+import com.assignment1.travel_booking.model.Booking;
+import com.assignment1.travel_booking.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

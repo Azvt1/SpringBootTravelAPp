@@ -1,4 +1,4 @@
-package com.assignment1.travelbooking.model;
+package com.assignment1.travel_booking.model;
 
 import jakarta.persistence.*;
 import java.util.List;

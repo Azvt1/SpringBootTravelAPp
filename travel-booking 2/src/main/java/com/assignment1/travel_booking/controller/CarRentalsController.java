@@ -1,7 +1,9 @@
+package com.assignment1.travel_booking.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
-
+import com.assignment1.travel_booking.model.CarRentals;
 import org.springframework.web.bind.annotation.*;
-
+import com.assignment1.travel_booking.service.CarRentalsService;
 
 import java.util.List;
 

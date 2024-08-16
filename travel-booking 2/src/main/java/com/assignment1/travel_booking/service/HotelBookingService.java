@@ -1,4 +1,10 @@
+package com.assignment1.travel_booking.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.assignment1.travel_booking.repository.HotelBookingRepository;
+
+import com.assignment1.travel_booking.model.HotelBooking;
 
 import org.springframework.stereotype.Service;
 

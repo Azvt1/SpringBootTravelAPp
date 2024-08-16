@@ -1,5 +1,7 @@
 package com.assignment1.travel_booking.model;
 
+import com.assignment1.travel_booking.model.User;
+import com.assignment1.travel_booking.model.CarRentals;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +26,6 @@ public class Booking {
     private List<HotelBooking> hotelBookings;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-    private List<CarRental> carRentals;
+    private List<CarRentals> carRentals;
 
 }
