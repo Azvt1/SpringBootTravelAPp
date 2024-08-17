@@ -2,6 +2,7 @@ package com.assignment1.travel_booking.model;
 
 import com.assignment1.travel_booking.model.User;
 import com.assignment1.travel_booking.model.CarRentals;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Booking {
     private Integer totalAmount;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
@@ -29,4 +30,47 @@ public class Booking {
     private List<CarRentals> carRentals;
 
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public void setFlightBookings(List<FlightBooking> flightBookings) {
+        this.flightBookings = flightBookings;
+    }
+
+    public void setTotalAmount(Integer totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setCarRentals(List<CarRentals> carRentals) {
+        this.carRentals = carRentals;
+    }
+
+    public Date getBookingDate() {
+        return bookingDate;
+    }
+
+    public Integer getTotalAmount() {
+        return totalAmount;
+    }
+
+    public User getUser() {
+        return user;
+    }
+    public Long getBookingId() {
+        return bookingId;
+    }
 }
