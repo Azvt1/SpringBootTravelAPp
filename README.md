@@ -3,24 +3,11 @@
 
 This is a Spring Boot application for managing travel bookings, including flights, hotels, and car rentals. The application is built using a layered architecture, separating concerns across API, Service, and Data Access layers. This project uses an in-memory H2 database for simplicity and is designed to be run locally using IntelliJ IDEA.
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Setup Instructions](#setup-instructions)
-- [Running the Application](#running-the-application)
-- [Testing the API](#testing-the-api)
-- [Working with Git Branches](#working-with-git-branches)
-- [H2 Database Console](#h2-database-console)
-- [Contributing](#contributing)
-
-## Prerequisites
-Before you begin, ensure you have the following installed on your machine:
-- [Java JDK 21 or later](https://www.oracle.com/au/java/technologies/downloads/)
-- [Maven 3.6.3 or later](https://maven.apache.org/download.cgi)
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+## Clone the Repository 
+
 Clone the repository to your local machine using the following command:
 
 ```bash
@@ -31,88 +18,29 @@ If you are part of a team, ensure you are working on the correct branch (Create 
 ```bash
 git checkout -b your-branch-name
 ```
-### 2. Import the Project into IntelliJ IDEA
-1. Open IntelliJ IDEA.
-2. Select File > Open and navigate to the travel-booking directory.
-3. IntelliJ will automatically detect the project as a Maven project. If prompted, choose to import as a Maven project.
-4. Wait for IntelliJ to download dependencies and set up the project.
+## Manually Setting Up the Project
 
-### 3. Configure Application Properties
-The application uses an H2 in-memory database by default. The configuration is located in the `src/main/resources/application.properties` file:
-```bash
-spring.application.name=travel-booking
+First go to the Spring Initializr to download a Spring project template. Choose Maven in Project, Choose Java in Language. Choose a version of Spring Boot, for example 3.3.2. Choose Jar in Packaging and Java 21 In Dependencies, add Web, JPA and H2.
 
-# H2 Database Configuration
-spring.datasource.url=jdbc:h2:mem:travel-booking-db
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.h2.console.enabled=true
+Name the following project metadata
+Group: com.assignment1
+Artifact: travel_booking
+Name: travel_booking
+Package name: com.assignment.travel_booking 
+ 
+Click "GENERATE", download and extract the zip file. Open the project folder in the IDE.
 
-# JPA Configuration
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
-```
-This configuration is sufficient for development and testing.
+Step1: Navigate to src/main/java/com/assignment1/travel_booking/
+Step 2: Create a package named model
+Step 3: In the model package, implement the classes User, Booking, FlightBooking, HotelBooking, CarRentals, Flight. 
+Step 4: repeat Step1 and create a package named repository.
+Step 5: In the repository package, implement the given repositories UserRepository, BookingRepository, FlightBookingRepository, HotelBookingRepository, CarRentalsRepository, FlightRepository.
+Step 6: repeat Step1 and create a package named controller.
+Step 7: In the controller package, implement the given repositories UserController, BookingController, FlightBookingController, HotelBookingController, CarRentalsController, FlightController.
+Step 8: repeat Step1 and create a package named service.
+Step 9: In the service package, implement the given repositories UserService, BookingService, FlightBookingService, HotelBookingService, CarRentalsService, FlightService.
 
-## Running the Application
-1. In IntelliJ, open the TravelBookingApplication class, located at `src/main/java/com/assignment1/travel_booking/TravelBookingApplication.java`.
-2. Right-click on the `TravelBookingApplication` class and select Run `TravelBookingApplication`.
+![image](https://github.com/user-attachments/assets/4ae64893-88c9-4a9a-908f-c108837fe558)
 
-This application will start on `http://localhost:8080`.
 
-## Testing the API
-
-### Using Postman
-
-To test the API, you can use Postman or any other API testing tool. Below are some example requests:
-
-- **Create a Flight (POST Request)**
-
-```http
-POST /flights HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-
-{
-  "flightNumber": 12345,
-  "departureTime": "2024-08-13T14:30:00",
-  "arrivalTime": "2024-08-13T18:45:00",
-  "originCity": "New York",
-  "arrivalCity": "Los Angeles"
-}
-```
-
-- **Retrieve a Flight by Flight Number (GET Request)**
-```http
-GET /flights/12345 HTTP/1.1
-Host: localhost:8080
-```
-
-## H2 Database Console
-
-You can access the H2 database console at `http://localhost:8080/h2-console`. Use the following JDBC URL to connect:
-
-```plaintext
-jdbc:h2:mem:travel-booking-db
-```
-
-## Working with Git Branches
-
-### Pushing Changes
-After making changes, commit and push your changes to the correct branch:
-
-```bash
-git add .
-git commit -m "Your commit message"
-git push origin your-branch-name
-```
-
-## Contributing
-1. Fork the repository.
-2. Create your feature branch (git checkout -b feature/AmazingFeature).
-3. Commit your changes (git commit -m 'Add some AmazingFeature').
-4. Push to the branch (git push origin feature/AmazingFeature).
-5. Open a pull request.
 
