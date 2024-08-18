@@ -1,8 +1,11 @@
 package com.assignment1.travel_booking.controller;
 
 
+import com.assignment1.travel_booking.dto.FlightBookingDTO;
+import com.assignment1.travel_booking.model.Booking;
 import com.assignment1.travel_booking.model.Flight;
 import com.assignment1.travel_booking.model.FlightBooking;
+import com.assignment1.travel_booking.repository.BookingRepository;
 import com.assignment1.travel_booking.repository.FlightRepository;
 import com.assignment1.travel_booking.service.FlightBookingService;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +20,18 @@ public class FlightBookingController {
     private final FlightBookingService flightBookingService;
     private final FlightRepository flightRepository;
 
+    private final BookingRepository bookingRepository;
 
-    public FlightBookingController(FlightBookingService flightBookingService, FlightRepository flightRepository) {
+
+
+    public FlightBookingController(FlightBookingService flightBookingService, FlightRepository flightRepository, BookingRepository bookingRepository) {
         this.flightBookingService = flightBookingService;
         this.flightRepository = flightRepository;
+        this.bookingRepository = bookingRepository;
     }
 
     @GetMapping
-    public List<FlightBooking> getAllFlightBookings() {
+    public List<FlightBookingDTO> getAllFlightBookings() {
         return flightBookingService.getAllFlightBookings();
     }
 
@@ -46,6 +53,13 @@ public class FlightBookingController {
 
         // Set the retrieved Flight entity in the FlightBooking
         flightBooking.setFlight(flight);
+
+        // Retrieve the booking
+        Long bookingId = flightBooking.getBooking().getBookingId();
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new RuntimeException("Booking not found, double check the id"));
+
+        flightBooking.setBooking(booking);
 
         // Save the FlightBooking
         FlightBooking savedFlightBooking = flightBookingService.saveFlightBooking(flightBooking);

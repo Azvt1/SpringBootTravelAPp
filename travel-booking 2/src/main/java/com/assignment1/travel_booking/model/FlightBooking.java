@@ -2,7 +2,6 @@ package com.assignment1.travel_booking.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,17 +9,16 @@ public class FlightBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    // Uncomment when Booking entity will be added
-//    @ManyToOne
-//    private Booking booking;
+    private Long flightBookingId;
 
 
     @ManyToOne
     @JoinColumn(name = "flightNumber", nullable = false)
     private Flight flight;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingId", nullable = false)
+    private Booking booking;
 
 
     private LocalDateTime departureTime;
@@ -46,8 +44,8 @@ public class FlightBooking {
         return arrivalTime;
     }
 
-    public Long getId() {
-        return id;
+    public Long getFlightBookingId() {
+        return flightBookingId;
     }
 
     public String getSeatSelection() {
@@ -58,7 +56,20 @@ public class FlightBooking {
         return flight;
     }
 
+    public Booking getBooking() {
+        return booking;
+    }
+
     // Setters
+
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public void setFlightBookingId(Long flightBookingId) {
+        this.flightBookingId = flightBookingId;
+    }
 
     public void setArrivalCity(String arrivalCity) {
         this.arrivalCity = arrivalCity;

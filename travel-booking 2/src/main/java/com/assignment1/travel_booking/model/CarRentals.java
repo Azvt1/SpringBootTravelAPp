@@ -18,12 +18,21 @@ public class CarRentals {
     private double totalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "booking_id")
+    @JoinColumn(name = "bookingId", nullable = false)
     private Booking booking;
+
 
     // Getters and Setters
     public Long getCarRentalId() {
         return carRentalId;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public void setCarRentalId(Long carRentalId) {
