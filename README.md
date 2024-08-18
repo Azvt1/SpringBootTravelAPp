@@ -31,7 +31,16 @@ Package name: com.assignment.travel_booking
 Click "GENERATE", download and extract the zip file. Open the project folder in the IDE.
 
 
-![image](https://github.com/user-attachments/assets/4ae64893-88c9-4a9a-908f-c108837fe558)
+Step1: Navigate to src/main/java/com/assignment1/travel_booking/
+Step 2: Create a package named model
+Step 3: In the model package, implement the classes User, Booking, FlightBooking, HotelBooking, CarRentals, Flight. 
+Step 4: repeat Step1 and create a package named repository.
+Step 5: In the repository package, implement the given repositories UserRepository, BookingRepository, FlightBookingRepository, HotelBookingRepository, CarRentalsRepository, FlightRepository.
+Step 6: repeat Step1 and create a package named controller.
+Step 7: In the controller package, implement the given repositories UserController, BookingController, FlightBookingController, HotelBookingController, CarRentalsController, FlightController.
+Step 8: repeat Step1 and create a package named service.
+Step 9: In the service package, implement the given repositories UserService, BookingService, FlightBookingService, HotelBookingService, CarRentalsService, FlightService.
+
 
 
 
