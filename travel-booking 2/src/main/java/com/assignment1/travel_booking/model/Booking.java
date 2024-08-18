@@ -16,6 +16,7 @@ public class Booking {
     private String status;
     private Integer totalAmount;
 
+
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
@@ -34,10 +35,13 @@ public class Booking {
         this.status = status;
     }
 
+    public Booking() {
+    }
 
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
@@ -72,5 +76,26 @@ public class Booking {
     }
     public Long getBookingId() {
         return bookingId;
+    }
+
+    public void setBookingId(Long bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public List<CarRentals> getCarRentals() {
+        return carRentals;
+    }
+
+    public List<FlightBooking> getFlightBookings() {
+        return flightBookings;
+    }
+
+    public List<HotelBooking> getHotelBookings() {
+        return hotelBookings;
+    }
+
+
+    public void setHotelBookings(List<HotelBooking> hotelBookings) {
+        this.hotelBookings = hotelBookings;
     }
 }

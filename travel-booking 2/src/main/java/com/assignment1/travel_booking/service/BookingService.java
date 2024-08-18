@@ -1,5 +1,6 @@
 package com.assignment1.travel_booking.service;
 
+import com.assignment1.travel_booking.dto.BookingDTO;
 import com.assignment1.travel_booking.model.Booking;
 import com.assignment1.travel_booking.model.User;
 import com.assignment1.travel_booking.repository.BookingRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BookingService {
@@ -22,7 +24,7 @@ public class BookingService {
     @Autowired
     private UserService userService;
 
-    public Booking createBooking(Booking booking) {
+    public BookingDTO createBooking(Booking booking) {
         if (booking.getUser() == null || booking.getUser().getUserId() == null) {
             throw new IllegalArgumentException("User_id must be provided");
         }
@@ -33,15 +35,28 @@ public class BookingService {
             throw new IllegalArgumentException("User was not found");
         }
 
+        bookingRepository.save(booking);
 
-        booking.getUser().setName(userOptional.get().getName());
-        booking.getUser().setEmail(userOptional.get().getEmail());
-
-        return bookingRepository.save(booking);
+        return new BookingDTO(
+                booking.getBookingId(),
+                booking.getBookingDate(),
+                booking.getStatus(),
+                booking.getTotalAmount(),
+                booking.getUser().getUserId()
+        );
     }
 
-    public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
+    public List<BookingDTO> getAllBookings() {
+
+        List<Booking> bookings = bookingRepository.findAll();
+
+        return bookings.stream().map(booking -> new BookingDTO(
+                booking.getBookingId(),
+                booking.getBookingDate(),
+                booking.getStatus(),
+                booking.getTotalAmount(),
+                booking.getUser().getUserId()
+        )).collect(Collectors.toList());
     }
 
     public Booking getBookingById(Long id) {

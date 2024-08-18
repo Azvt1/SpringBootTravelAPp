@@ -1,5 +1,6 @@
 package com.assignment1.travel_booking.controller;
 
+import com.assignment1.travel_booking.dto.BookingDTO;
 import com.assignment1.travel_booking.model.Booking;
 import com.assignment1.travel_booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class BookingController {
     @PostMapping("/create")
     public ResponseEntity<?> createBooking(@RequestBody Booking booking) {
         try {
-            Booking createdBooking = bookingService.createBooking(booking);
+            BookingDTO createdBooking = bookingService.createBooking(booking);
             return new ResponseEntity<>(createdBooking, HttpStatus.CREATED);
         } catch (IllegalArgumentException ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
@@ -27,7 +28,7 @@ public class BookingController {
     }
 
     @GetMapping("/all")
-    public List<Booking> getAllBookings() {
+    public List<BookingDTO> getAllBookings() {
         return bookingService.getAllBookings();
     }
 

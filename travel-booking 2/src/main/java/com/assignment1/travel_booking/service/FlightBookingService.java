@@ -1,5 +1,7 @@
 package com.assignment1.travel_booking.service;
 
+import com.assignment1.travel_booking.dto.BookingDTO;
+import com.assignment1.travel_booking.dto.FlightBookingDTO;
 import com.assignment1.travel_booking.model.Flight;
 import com.assignment1.travel_booking.model.FlightBooking;
 import com.assignment1.travel_booking.repository.FlightBookingRepository;
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class FlightBookingService {
     private final FlightBookingRepository flightBookingRepository;
@@ -19,19 +23,22 @@ public class FlightBookingService {
     }
 
     public FlightBooking saveFlightBooking(FlightBooking flightBooking) {
-        // Load the flight from the database using the flight number
-        Flight flight = flightRepository.findById(flightBooking.getFlight().getFlightNumber())
-                .orElseThrow(() -> new RuntimeException("Flight not found"));
-
-        // Set the loaded flight to the booking
-        flightBooking.setFlight(flight);
-
-        // Now save the booking
         return flightBookingRepository.save(flightBooking);
     }
 
-    public List<FlightBooking> getAllFlightBookings() {
-        return flightBookingRepository.findAll();
+    public List<FlightBookingDTO> getAllFlightBookings() {
+        List<FlightBooking>flightBookings = flightBookingRepository.findAll();
+
+        return flightBookings.stream().map(flightBooking -> new FlightBookingDTO(
+                flightBooking.getFlightBookingId(),
+                flightBooking.getFlight().getFlightNumber(),
+                new BookingDTO(flightBooking.getBooking().getBookingId(), flightBooking.getBooking().getBookingDate(), flightBooking.getBooking().getStatus(), flightBooking.getBooking().getTotalAmount(), flightBooking.getBooking().getUser().getUserId()),
+                flightBooking.getDepartureTime(),
+                flightBooking.getArrivalTime(),
+                flightBooking.getDepartureCity(),
+                flightBooking.getArrivalCity(),
+                flightBooking.getSeatSelection()
+        )).collect(Collectors.toList());
     }
 
 

@@ -31,6 +31,10 @@ public class User {
         this.bookings = new ArrayList<>();
     }
 
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public List<Booking> getBookings() {
         return bookings;
     }

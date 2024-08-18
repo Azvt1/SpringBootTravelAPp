@@ -1,5 +1,6 @@
 package com.assignment1.travel_booking.controller;
 
+import com.assignment1.travel_booking.dto.UserDTO;
 import com.assignment1.travel_booking.model.User;
 import com.assignment1.travel_booking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public List<User> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 

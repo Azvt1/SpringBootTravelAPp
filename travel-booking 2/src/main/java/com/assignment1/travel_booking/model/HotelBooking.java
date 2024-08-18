@@ -8,8 +8,10 @@ import java.util.Date;
 public class HotelBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long hotelId;
+    private Long hotelBookingId;
     private String location;
+
+    private String hotelName;
     private double pricePerNight;
     private Date checkInDate;
     private Date checkOutDate;
@@ -17,15 +19,24 @@ public class HotelBooking {
 
 
     @ManyToOne
-    @JoinColumn(name = "booking_id", nullable = false)
+    @JoinColumn(name = "bookingId", nullable = false)
     private Booking booking;
+
     // Getters and Setters
-    public Long getHotelId() {
-        return hotelId;
+    public Long getHotelBookingId() {
+        return hotelBookingId;
     }
 
-    public void setHotelId(Long hotelId) {
-        this.hotelId = hotelId;
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelBookingId(Long hotelId) {
+        this.hotelBookingId = hotelId;
     }
 
     public String getLocation() {
@@ -66,5 +77,13 @@ public class HotelBooking {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 }
