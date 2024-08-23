@@ -41,6 +41,36 @@ Step 7: In the controller package, implement the given repositories UserControll
 Step 8: repeat Step1 and create a package named service.
 Step 9: In the service package, implement the given repositories UserService, BookingService, FlightBookingService, HotelBookingService, CarRentalsService, FlightService.
 
+## Sample Rest Request
+**CREATE User**
+```bash
+curl -X POST -H "Content-Type:application/json" -d '{"name":"Azamat",
+"phoneNumber":"123455", "email":"azat@gmail.com", "password":"test123"}'
+http://localhost:8080/api/users/create
+```
+Output:
+{
+ "userId": 1,
+ "name": "Azamat",
+ "phoneNumber": "123455",
+ "email": "azat@gmail.com",
+ "password": "test123",
+ "bookings": []
+}
 
+**GET User**
+```bash
+curl -X GET http://localhost:8080/flights
+```
+Output:
+[
+ {
+ "userId": 1,
+ "name": "Azamat",
+ "phoneNumber": "123455",
+ "email": "azat@gmail.com",
+ "bookings": []
+ }
+]
 
 
