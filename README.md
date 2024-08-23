@@ -71,4 +71,32 @@ Output:
  }
 ]
 
+**CREATE Flight**
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"flightNumber":235,"departureTime":"2024-08-13T14:30:00","arrivalTime":"2024-08-13T18:45:00","originCity":"Almaty","arrivalCity":"Astana"}' http://localhost:8080/flights
+```
+Output:
+{
+"flightNumber": 235,
+"departureTime": "2024-08-13T14:30:00",
+"arrivalTime": "2024-08-13T18:45:00",
+"originCity": "Almaty",
+"arrivalCity": "Astana"
+}
+
+**GET Flight**
+```bash
+curl -X GET http://localhost:8080/flights
+```
+Output:
+[
+{
+"flightNumber": 235,
+"departureTime": "2024-08-13T14:30:00",
+"arrivalTime": "2024-08-13T18:45:00",
+"originCity": "Almaty",
+"arrivalCity": "Astana"
+}
+]
+
 
