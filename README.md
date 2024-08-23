@@ -44,9 +44,7 @@ Step 9: In the service package, implement the given repositories UserService, Bo
 ## Sample Rest Request
 **CREATE User**
 ```bash
-curl -X POST -H "Content-Type:application/json" -d '{"name":"Azamat",
-"phoneNumber":"123455", "email":"azat@gmail.com", "password":"test123"}'
-http://localhost:8080/api/users/create
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Azamat","phoneNumber":"123455", "email":"azat@gmail.com", "password":"test123"}' http://localhost:8080/api/users/create
 ```
 Output:
 {
